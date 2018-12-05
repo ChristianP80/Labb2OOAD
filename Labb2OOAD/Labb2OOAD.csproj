@@ -14,5 +14,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
+    <Folder Include="Validations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\NavigeratPage.xaml.cs" />
   </ItemGroup>
 </Project>
