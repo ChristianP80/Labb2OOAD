@@ -5,7 +5,6 @@ using Xamarin.Forms;
 
 namespace Labb2OOAD.Validations
 {
-{
     public abstract class ExtendedBindableObject : BindableObject
     {
         public void RaisePropertyChanged<T>(Expression<Func<T>> property)

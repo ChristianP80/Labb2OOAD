@@ -15,10 +15,7 @@ namespace Labb2OOAD.Validations
 
         public List<string> Errors
         {
-            get
-            {
-                return _errors;
-            }
+            get { return _errors; }
             set
             {
                 _errors = value;
@@ -28,10 +25,7 @@ namespace Labb2OOAD.Validations
 
         public T Value
         {
-            get
-            {
-                return _value;
-            }
+            get { return _value; }
             set
             {
                 _value = value;
@@ -41,10 +35,7 @@ namespace Labb2OOAD.Validations
 
         public bool IsValid
         {
-            get
-            {
-                return _isValid;
-            }
+            get{ return _isValid; }
             set
             {
                 _isValid = value;

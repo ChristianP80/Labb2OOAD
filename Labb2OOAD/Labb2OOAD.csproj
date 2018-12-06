@@ -15,8 +15,13 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Validations\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\NavigeratPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
   </ItemGroup>
 </Project>
