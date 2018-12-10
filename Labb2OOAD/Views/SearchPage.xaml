@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:Labb2OOAD.ViewModels;assembly:Labb2OOAD"
              xmlns:behaviors="clr-namespace:Labb2OOAD.Behaviors;assembly:Labb2OOAD"
+             xmlns:converter="clr-namespace:Labb2OOAD.Converters;assembly:Labb2OOAD"
              x:Class="Labb2OOAD.Views.SearchPage"
              Title="">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BoolToStringConverter x:Key="BoolToString"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}" IsEnabled="{Binding Cityname.isValid}" >
+            <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}" >
                 <Entry.Behaviors>  
                     <behaviors:EventToCommandBehavior  
                         EventName="TextChanged"  
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
-            <Button BindingContext="SearchViewModell" Text="Search" IsEnabled="{Binding Cityname.isValid}" />
+            <Button Text="Search" IsEnabled="{Binding Cityname.IsValid, Mode=TwoWay}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
