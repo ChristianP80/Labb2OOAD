@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Labb2OOAD.ViewModels;
 using Xamarin.Forms;
 
 namespace Labb2OOAD.Views
@@ -10,6 +10,8 @@ namespace Labb2OOAD.Views
         public SearchPage()
         {
             InitializeComponent();
+            SearchViewModel test = new SearchViewModel();
+            BindingContext = test;
         }
     }
 }

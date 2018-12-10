@@ -45,7 +45,7 @@ namespace Labb2OOAD.Validations
 
         public ValidatableObject()
         {
-            _isValid = true;
+            _isValid = false;
             _errors = new List<string>();
             _validations = new List<IValidationRule<T>>();
         }

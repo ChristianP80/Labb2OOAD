@@ -3,9 +3,6 @@ namespace Labb2OOAD.Validations
 {
     public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
     {
-        public IsNotNullOrEmptyRule()
-        {
-        }
 
         public string ValidationMessage { get; set; }
 
