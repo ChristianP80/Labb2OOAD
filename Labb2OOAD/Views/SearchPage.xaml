@@ -5,11 +5,6 @@
              xmlns:converter="clr-namespace:Labb2OOAD.Converters;assembly:Labb2OOAD"
              x:Class="Labb2OOAD.Views.SearchPage"
              Title="">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converter:BoolToStringConverter x:Key="BoolToString"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}" >
@@ -19,7 +14,7 @@
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
-            <Button Text="Search" IsEnabled="{Binding Cityname.IsValid, Mode=TwoWay}" />
+            <Button Text="Search" Command="{Binding SearchCityCommand}" IsEnabled="{Binding Cityname.IsValid, Mode=TwoWay}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

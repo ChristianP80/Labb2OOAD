@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Labb2OOAD.Models;
 using Labb2OOAD.ViewModels;
 using Xamarin.Forms;
 

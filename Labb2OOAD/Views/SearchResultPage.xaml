@@ -3,23 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:Labb2OOAD.ViewModels;assembly:Labb2OOAD"
              x:Class="Labb2OOAD.Views.SearchResultPage">
-    <ContentPage.BindingContext>
-        <local:TestVM/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="City"/>
-            <Label Text="WebAdress"/>
-            <Label Text="Email"/>
-            <Label Text="Population"/>
-            <Label Text="Municipal code"/>
-            <Button Text="RETURN" Command="{Binding NavBackCommand}">
-                <Button.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean"
-                        iOS="true"
-                        Android="false"/>
-                    </Button.IsVisible>
-            </Button>
+            <Label Text="{Binding City}"/>
+            <Label Text="{Binding Street}"/>
+            <Label Text="{Binding ZipCode}"/>
+            <Button Text="RETURN" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
