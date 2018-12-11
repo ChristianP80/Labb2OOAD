@@ -4,9 +4,16 @@
              xmlns:behaviors="clr-namespace:Labb2OOAD.Behaviors;assembly:Labb2OOAD"
              xmlns:converter="clr-namespace:Labb2OOAD.Converters;assembly:Labb2OOAD"
              x:Class="Labb2OOAD.Views.SearchPage"
-             Title="">
+             Title="Search">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Entry Placeholder="Enter Address" HorizontalTextAlignment="Center" Text="{Binding Address.Value, Mode=TwoWay}">
+                <Entry.Behaviors>  
+                    <behaviors:EventToCommandBehavior  
+                        EventName="TextChanged"  
+                        Command="{Binding ValidateStreetnameCommand}"/>  
+                </Entry.Behaviors> 
+            </Entry>
             <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}" >
                 <Entry.Behaviors>  
                     <behaviors:EventToCommandBehavior  
@@ -14,7 +21,13 @@
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
-            <Button Text="Search" Command="{Binding SearchCityCommand}" IsEnabled="{Binding Cityname.IsValid, Mode=TwoWay}"/>
+            <Button Text="Search">
+                <Button.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                        EventName="Clicked"
+                        Command="{Binding SearchCityCommand}"/>
+                </Button.Behaviors>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

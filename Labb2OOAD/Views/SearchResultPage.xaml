@@ -8,7 +8,6 @@
             <Label Text="{Binding City}"/>
             <Label Text="{Binding Street}"/>
             <Label Text="{Binding ZipCode}"/>
-            <Button Text="RETURN" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

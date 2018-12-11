@@ -4,12 +4,6 @@
             xmlns:local="clr-namespace:Labb2OOAD.Views;assembly:Labb2OOAD" 
             x:Class="Labb2OOAD.MainPage">
     <local:WelcomePage/>
-    
-    <NavigationPage Title="Search">
-        <x:Arguments>
-            <local:SearchPage/>
-        </x:Arguments>    
-    </NavigationPage>
-    
+    <local:SearchPage/>
     <local:CameraPage/>
 </TabbedPage>
