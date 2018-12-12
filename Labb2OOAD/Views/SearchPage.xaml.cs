@@ -13,6 +13,14 @@ namespace Labb2OOAD.Views
             InitializeComponent();
             SearchViewModel test = new SearchViewModel();
             BindingContext = test;
+
+            MessagingCenter.Subscribe<object>(this, "Arrived", (sender) => {
+                // do something whenever the "Arrived" message is sent from whatever type 
+                //<object> is.
+
+                DisplayAlert("Error", "Enter a valid street name and city", "Continue");
+            });
         }
+
     }
 }

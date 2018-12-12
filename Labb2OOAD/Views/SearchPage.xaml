@@ -26,7 +26,6 @@
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
-            <Label Text="{Binding Address.Errors, Converter={StaticResource errorConverter}"/>
             <Button Text="Search" Command="{Binding SearchCityCommand}"/>
         </StackLayout>
     </ContentPage.Content>

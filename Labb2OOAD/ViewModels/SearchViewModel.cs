@@ -102,6 +102,7 @@ namespace Labb2OOAD.ViewModels
 
             if (fetch.Length < 1)
             {
+                MessagingCenter.Send<object>(this, "Arrived");
 
                 Cityname.Value = "";
                 Address.Value = "";
