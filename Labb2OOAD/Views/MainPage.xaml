@@ -5,5 +5,5 @@
             x:Class="Labb2OOAD.MainPage">
     <local:WelcomePage/>
     <local:SearchPage/>
-    <local:CameraPage/>
+    <local:SpeechPage/>
 </TabbedPage>
