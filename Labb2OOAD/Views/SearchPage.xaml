@@ -21,13 +21,7 @@
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
-            <Button Text="Search">
-                <Button.Behaviors>
-                    <behaviors:EventToCommandBehavior 
-                        EventName="Clicked"
-                        Command="{Binding SearchCityCommand}"/>
-                </Button.Behaviors>
-            </Button>
+            <Button Text="Search" Command="{Binding SearchCityCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

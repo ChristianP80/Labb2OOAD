@@ -11,18 +11,11 @@ namespace Labb2OOAD.ViewModels
     {
         const string _token = "8962900936131db7280a71d1f4162a99988fac18";
 
-        public ICommand ValidateCityNameCommand => new Command(() => ValidateCityName());
-        public ICommand ValidateStreetnameCommand => new Command(() => ValidateStreetname());
-        //public ICommand SearchCityCommand => new Command (async () => await SearchCityAsync());
-        public ICommand SearchCityCommand => new Command(
-            execute: async () =>
-            {
-                await SearchCityAsync();
-            },
-            canExecute: () =>
-            { 
-                return Address.IsValid && Cityname.IsValid;
-            });
+        public ICommand ValidateCityNameCommand { get; set; }
+        public ICommand ValidateStreetnameCommand { get; set; }
+        public ICommand SearchCityCommand { get; set; }
+
+
 
         private void RefreshCanExecute()
         {
@@ -62,6 +55,20 @@ namespace Labb2OOAD.ViewModels
             _cityName = new ValidatableObject<string>();
             _cityDtO = new CityDtO();
             AddValidations();
+
+            
+        SearchCityCommand = new Command(
+            execute: async () =>
+            {
+                await SearchCityAsync();
+            },
+            canExecute: () =>
+            {
+                return Address.IsValid && Cityname.IsValid;
+            });
+
+            ValidateStreetnameCommand = new Command(ValidateStreetname);
+            ValidateCityNameCommand = new Command(ValidateCityName);
         }
 
         private void AddValidations()
@@ -76,19 +83,30 @@ namespace Labb2OOAD.ViewModels
             });
         }
 
-        private bool ValidateCityName()
+        private void ValidateCityName()
         {
-            return _cityName.Validate();
+            _cityName.Validate();
+            RefreshCanExecute();
         }
 
-        private bool ValidateStreetname()
+        private void ValidateStreetname()
         {
-            return _address.Validate();
+            _address.Validate();
+            RefreshCanExecute();
         }
 
         private async System.Threading.Tasks.Task SearchCityAsync()
         {
-            var fetch = await ApiService.GetProductAsync("https://papapi.se/json/?s=" + Cityname.Value + "&token=" + _token);
+
+            // https://papapi.se/json/?s=Birger+Jarlsgatan&c=Stockholm&token=DIN_TOKEN
+            var fetch = await ApiService.GetProductAsync("https://papapi.se/json/?s=" + Address.Value + "&c=" + Cityname.Value + "&token=" + _token);
+
+            if (fetch[0] == null)
+            {
+                Cityname.Value = "";
+                Address.Value = "";
+                return;
+            }
 
             _cityDtO.City = fetch[0].City;
             _cityDtO.ZipCode = fetch[0].ZipCode;
@@ -97,6 +115,7 @@ namespace Labb2OOAD.ViewModels
             var resultPage = new SearchResultPage();
             resultPage.BindingContext = _cityDtO;
             Cityname.Value = "";
+            Address.Value = "";
             await Application.Current.MainPage.Navigation.PushAsync(resultPage);
             //await Application.Current.MainPage.Navigation.PushModalAsync(resultPage);
         }

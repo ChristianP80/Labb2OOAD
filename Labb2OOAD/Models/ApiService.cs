@@ -24,8 +24,20 @@ namespace Labb2OOAD.Models
             if (response.IsSuccessStatusCode)
             {
                 var test = JObject.Parse(content);
-                var result = test["result"].ToString();
-                city = JsonConvert.DeserializeObject<CityDtO[]>(result);
+
+                var result = test["result"];
+
+
+                if (result is JArray)
+                {
+                    city = JsonConvert.DeserializeObject<CityDtO[]>(result.ToString());
+                    return city;
+                }
+                else if (result is JObject)
+                {
+                    city = new CityDtO[1];
+                    return city;
+                }
             }
             return city;
         }
