@@ -5,7 +5,11 @@
              Title="Welcome">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="This is a shitty app"/>
+            <Label Text="Welcome to shitty app" HorizontalTextAlignment="Center"/>
+            <Button x:Name="pooButton"
+                    BackgroundColor="Transparent"
+                    Clicked="AnimatePoo"
+                    Image="poop.png"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

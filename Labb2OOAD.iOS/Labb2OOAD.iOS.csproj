@@ -141,6 +141,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\poop.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\poop.png.imageset\poop.png" />
+    <ImageAsset Include="Assets.xcassets\poop.png.imageset\poop2x.png" />
+    <ImageAsset Include="Assets.xcassets\poop.png.imageset\poop3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -157,5 +161,8 @@
       <Project>{8F0F1209-6FE8-40AA-AF6A-D08391016488}</Project>
       <Name>Labb2OOAD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\poop.png.imageset\" />
   </ItemGroup>
 </Project>
