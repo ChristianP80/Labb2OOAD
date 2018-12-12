@@ -55,7 +55,6 @@ namespace Labb2OOAD.ViewModels
             _cityName = new ValidatableObject<string>();
             _cityDtO = new CityDtO();
             AddValidations();
-
             
         SearchCityCommand = new Command(
             execute: async () =>
@@ -79,7 +78,7 @@ namespace Labb2OOAD.ViewModels
             });
             _address.Validations.Add(new IsNotNullOrEmptyRule<string>
             {
-                ValidationMessage = "A streetname is required"
+                ValidationMessage = "A valid streetname is required"
             });
         }
 
@@ -103,6 +102,7 @@ namespace Labb2OOAD.ViewModels
 
             if (fetch.Length < 1)
             {
+
                 Cityname.Value = "";
                 Address.Value = "";
                 return;

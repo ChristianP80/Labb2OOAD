@@ -6,7 +6,7 @@
     <ContentPage.Content>
         
         <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Entry x:Name="SpeechText" Placeholder="What do you want me to say?"></Entry>
+                <Entry x:Name="SpeechText" Placeholder="What do you want me to say?" HorizontalTextAlignment="Center"/>
             <Button Text="Make me talk!" Clicked="Handle_Clicked_1"/>
             <Button Text="Tell me what I'm currently using" Clicked="Handle_Clicked"/>
             

@@ -5,6 +5,11 @@
              xmlns:converter="clr-namespace:Labb2OOAD.Converters;assembly:Labb2OOAD"
              x:Class="Labb2OOAD.Views.SearchPage"
              Title="Search">
+    <ContentPage.Resources>
+    <ResourceDictionary>
+        <converter:FirstValidationErrorConverter x:Key="errorConverter"></converter:FirstValidationErrorConverter>
+    </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Entry Placeholder="Enter Address" HorizontalTextAlignment="Center" Text="{Binding Address.Value, Mode=TwoWay}">
@@ -14,13 +19,14 @@
                         Command="{Binding ValidateStreetnameCommand}"/>  
                 </Entry.Behaviors> 
             </Entry>
-            <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}" >
+            <Entry Placeholder="Enter Cityname" HorizontalTextAlignment="Center" Text="{Binding Cityname.Value, Mode=TwoWay}">
                 <Entry.Behaviors>  
                     <behaviors:EventToCommandBehavior  
                         EventName="TextChanged"  
                         Command="{Binding ValidateCityNameCommand}" />  
                 </Entry.Behaviors> 
             </Entry>
+            <Label Text="{Binding Address.Errors, Converter={StaticResource errorConverter}"/>
             <Button Text="Search" Command="{Binding SearchCityCommand}"/>
         </StackLayout>
     </ContentPage.Content>

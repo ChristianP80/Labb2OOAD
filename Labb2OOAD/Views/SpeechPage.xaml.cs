@@ -25,6 +25,7 @@ namespace Labb2OOAD.Views
         void Handle_Clicked_1(object sender, System.EventArgs e)
         {
             var EventText = SpeechText.Text;
+            SpeechText.Text = "";
 
             DependencyService.Get<ITextToSpeech>().Speak(EventText);
         }
