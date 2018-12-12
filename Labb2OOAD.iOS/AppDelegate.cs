@@ -4,6 +4,10 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
+using Labb2OOAD.Native;
+
+[assembly: Dependency(typeof(Labb2OOAD.iOS.AppDelegate))]
 
 namespace Labb2OOAD.iOS
 {
@@ -11,8 +15,9 @@ namespace Labb2OOAD.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IPlatform
     {
+        UIDevice device = new UIDevice();
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -26,6 +31,16 @@ namespace Labb2OOAD.iOS
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public string GetOS()
+        {
+            return "iOS";
+        }
+
+        public string GetVersion()
+        {
+            return device.SystemVersion;
         }
     }
 }

@@ -19,6 +19,7 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="Native\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\NavigeratPage.xaml.cs" />
