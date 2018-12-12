@@ -35,7 +35,7 @@ namespace Labb2OOAD.Models
                 }
                 else if (result is JObject)
                 {
-                    city = new CityDtO[1];
+                    city = new CityDtO[0];
                     return city;
                 }
             }

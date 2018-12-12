@@ -101,7 +101,7 @@ namespace Labb2OOAD.ViewModels
             // https://papapi.se/json/?s=Birger+Jarlsgatan&c=Stockholm&token=DIN_TOKEN
             var fetch = await ApiService.GetProductAsync("https://papapi.se/json/?s=" + Address.Value + "&c=" + Cityname.Value + "&token=" + _token);
 
-            if (fetch[0] == null)
+            if (fetch.Length < 1)
             {
                 Cityname.Value = "";
                 Address.Value = "";
