@@ -8,6 +8,9 @@
             <Label Text="{Binding City}"/>
             <Label Text="{Binding Street}"/>
             <Label Text="{Binding ZipCode}"/>
+            <Label Text="{Binding Municipality}"/>
+            <Label Text="{Binding Code}"/>
+            <Label Text="{Binding State}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

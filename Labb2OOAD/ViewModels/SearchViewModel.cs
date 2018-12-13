@@ -112,6 +112,10 @@ namespace Labb2OOAD.ViewModels
             _cityDtO.City = fetch[0].City;
             _cityDtO.ZipCode = fetch[0].ZipCode;
             _cityDtO.Street = fetch[0].Street;
+            _cityDtO.Code = fetch[0].Code;
+            _cityDtO.Municipality = fetch[0].Municipality;
+            _cityDtO.State = fetch[0].State;
+            
 
             var resultPage = new SearchResultPage();
             resultPage.BindingContext = _cityDtO;
